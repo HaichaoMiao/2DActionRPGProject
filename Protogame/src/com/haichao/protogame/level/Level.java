@@ -18,7 +18,15 @@ public class Level {
 		generateLevel();
 	}
 	
+	public Level (String path) {
+		loadLevel(path);
+	}
+	
 	private void generateLevel() {
 			
+	}
+	
+	private void loadLevel(String path) {
+		
 	}
 }
