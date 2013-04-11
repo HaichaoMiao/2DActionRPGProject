@@ -3,6 +3,7 @@ package com.haichao.protogame;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -12,6 +13,8 @@ import javax.swing.JFrame;
 
 import com.haichao.protogame.graphics.Screen;
 import com.haichao.protogame.input.Keyboard;
+import com.haichao.protogame.level.Level;
+import com.haichao.protogame.level.RandomLevel;
 
 /**
  * Game
@@ -31,6 +34,7 @@ public class Game extends Canvas implements Runnable {
 	private Thread thread; // explanation: thread is a process within a process
 	private JFrame frame;
 	private Keyboard key;
+	private Level level;
 	private boolean running = false; // indicator that the program is running
 
 	private Screen screen; 
@@ -50,7 +54,7 @@ public class Game extends Canvas implements Runnable {
 
 		frame = new JFrame();
 		key = new Keyboard();
-		
+		level = new RandomLevel(64, 64);
 		addKeyListener(key);
 	}
 
@@ -123,16 +127,11 @@ public class Game extends Canvas implements Runnable {
 		
 		stop();
 	}
-	int x = 0;
-	int y = 0;
+	
 	
 	public void update() {
 		key.update(); 
 		
-		if(key.up) y--;
-		if(key.down) y++;
-		if(key.left) x--;
-		if(key.right) x++;
  	}
 
 	public void render() {
@@ -148,7 +147,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear();
-		screen.render(x,y);
+		level.render(x, y, screen);
 		
 		for(int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
@@ -162,7 +161,8 @@ public class Game extends Canvas implements Runnable {
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Verdana", 0, 50));
 		// disposes the current graphics (release system resources)
 		g.dispose();
 		bs.show();
