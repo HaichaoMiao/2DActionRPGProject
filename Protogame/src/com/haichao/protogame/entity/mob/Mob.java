@@ -11,7 +11,7 @@ import com.haichao.protogame.graphics.Sprite;
 public abstract class Mob extends Entity{
 	
 	protected Sprite sprite;
-	protected int dir = 0; // 0 = north, 1 = east, 2 = south, 3 = west
+	protected int dir = -1; // 0 = north, 1 = east, 2 = south, 3 = west
 	protected boolean moving = false;
 	
 	public void move(int xa, int ya) {
@@ -28,6 +28,8 @@ public abstract class Mob extends Entity{
 	}
 
 	public void update() {
+		
+		
 	}
 
 	private boolean collision() {
@@ -35,7 +37,6 @@ public abstract class Mob extends Entity{
 	}
 	
 	public void render() {
-		
 	}
 	
 }

@@ -12,7 +12,8 @@ import com.haichao.protogame.level.Level;
  */
 public abstract class Entity {
 
-	protected int x, y;
+	public int x;
+	public int y;
 	private boolean removed = false;
 	protected Level level;
 	protected final Random random = new Random();
