@@ -21,10 +21,11 @@ public class Player extends Mob{
 		sprite = Sprite.player_forward;
 	}
 	
-	public Player(int x, int y) {
+	public Player(int x, int y, Keyboard input) {
 		this.x = x;
 		this.y = y;
 		this.input = input;
+		sprite = Sprite.player_forward;
 	}
 	
 	public void update() {
