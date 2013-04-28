@@ -15,7 +15,7 @@ import com.haichao.protogame.entity.mob.Player;
 import com.haichao.protogame.graphics.Screen;
 import com.haichao.protogame.input.Keyboard;
 import com.haichao.protogame.level.Level;
-import com.haichao.protogame.level.SpawnLevel;
+import com.haichao.protogame.level.TileCoordinate;
 
 /**
  * Game
@@ -56,8 +56,10 @@ public class Game extends Canvas implements Runnable {
 
 		frame = new JFrame();
 		key = new Keyboard();
-		level = new SpawnLevel("/textures/levels/level.png");
-		player = new Player(6*16, 6*16, key);
+		level = Level.spawn;
+		TileCoordinate playerSpawn = new TileCoordinate(20, 56);
+		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
+		player.init(level);
 		addKeyListener(key);
 	}
 

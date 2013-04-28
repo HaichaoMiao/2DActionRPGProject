@@ -21,5 +21,4 @@ public class SpawnHedgeTile extends Tile {
 	public boolean breakable() {
 		return true;
 	}
-
 }

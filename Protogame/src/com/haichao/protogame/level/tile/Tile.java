@@ -30,6 +30,15 @@ public class Tile {
 	public static Tile spawn_wall2 = new SpawnWallTile(Sprite.spawn_wall2);
 	public static Tile spawn_floor = new SpawnFloorTile(Sprite.spawn_floor);
 	
+	public static final int col_spawn_grass = 0xff00ff00;
+	public static final int col_spawn_hedge = 0; //unused
+	public static final int col_spawn_water = 0; //unused
+	public static final int col_spawn_wall1 = 0xff999999;
+	public static final int col_spawn_wall2 = 0xff666666;
+	public static final int col_spawn_floor = 0xff986728;
+	public static final int col_spawn_player = 0xff00ffff;
+	
+	
 	public Tile(Sprite sprite) {
 		this.sprite = sprite;
 	}
